@@ -1,0 +1,8 @@
+#!/bin/bash
+echo -n "insert filetype"
+read filetype
+echo "insert path"
+read DIR
+cd $DIR
+echo $(find *$filetype | wc -l )
+exit 0

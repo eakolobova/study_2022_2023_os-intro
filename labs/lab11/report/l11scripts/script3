@@ -1,0 +1,17 @@
+#!/bin/bash
+read var1
+Counter= $var1
+while
+(($Counter- =1))
+do 
+touch "$Counter.md"
+done
+ls
+Counter= $var1
+while
+(($Counter- =1))
+do 
+rm "$Counter.md"
+ls
+done
+exit 0

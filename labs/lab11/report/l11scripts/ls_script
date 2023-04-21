@@ -1,0 +1,10 @@
+#!/bin/bash
+echo -n "insert filename"
+read var1
+DIR= $var1
+for file in $(cd "$(dirname "$DIR")"; pwd -P)/$(basename "$DIR")/*
+do
+whatis `basename $file`
+done
+vdir $(cd "$(dirname "$DIR")"; pwd -P)/$(basename "$DIR")/*
+exit 0

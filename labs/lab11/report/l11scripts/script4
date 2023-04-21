@@ -1,0 +1,9 @@
+#!/bin/bash
+read var1
+DIR= $var1
+chmod -R 777 $DIR
+for file in $(cd "$(dirname "$DIR")"; pwd -P)/$(basename "$DIR")/*
+do
+find $DIR -type f -mtime -7 -print0 | xargs -0 tar rvf "$DIR.tar"
+done 
+exit 0

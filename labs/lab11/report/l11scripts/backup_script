@@ -1,0 +1,8 @@
+#!/bin/bash
+mkdir ~/backup
+cp backup_script ~/backup
+cd ~/backup
+find . -mtime -1 -type f -print0 | xargs -0 tar rvf "backup.tar"
+rm backup_script
+ls ~/backup
+exit 0

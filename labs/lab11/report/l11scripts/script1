@@ -1,0 +1,22 @@
+#!/bin/bash
+while getopts i:o:p:Cn Option
+do
+case $Option in
+o) oflag=1; oval=$OPTARG;;
+i) iflag=1; ival=$OPTARG;;
+p) pflag=1; pval=$OPTARG;;
+C) Cflag="--no-ignore-case";;
+n) nflag="--context";;
+*) echo "illegal option $Option"
+esac
+done
+
+cat $ival
+>> $oval
+grep $Cflag $nflag $pval $oval
+
+#– -iinputfile — прочитать данные из указанного файла;
+#– -ooutputfile — вывести данные в указанный файл;
+#– -pшаблон — указать шаблон для поиска;
+#– -C — различать большие и малые буквы;
+#s– -n — выдавать номера строк
